@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ushan | Football & Tech Enthusiast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: #ef4444; transition: 0.3s; }
+    a:hover { color: #ff0; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(17,17,17,0.9);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 30px; z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    .logo { font-size: 1.6rem; font-weight: bold; color: #ef4444; }
+    ul { display: flex; list-style: none; gap: 20px; }
+    li a { font-weight: 500; padding-bottom: 5px; }
+    li a.active { border-bottom: 2px solid #ef4444; }
+
+    /* Header */
+    header {
+      height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; color: #fff;
+      position: relative;
+    }
+    #particles-js {
+      position: absolute; top:0; left:0; width:100%; height:100%;
+      z-index:-1; background:#000;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      text-shadow: 0 0 15px rgba(239,68,68,0.8);
+    }
+    header p { font-size: 1.4rem; margin-top: 15px; }
+    #typing { color: #ff0; font-weight: bold; border-right: 2px solid; padding-right: 5px; animation: blink 0.8s infinite; }
+
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      max-width: 1100px; margin: auto;
+      opacity: 0; transform: translateY(50px);
+      transition: all 1s ease;
+    }
+    section.show { opacity: 1; transform: translateY(0); }
+    h2 { text-align: center; margin-bottom: 30px; color: #ef4444; font-size: 2.2rem; }
+
+    /* About */
+    #about {
+      background: linear-gradient(135deg, #111, #191919);
+      padding: 60px; border-radius: 16px;
+      box-shadow: 0 0 30px rgba(239,68,68,0.5);
+      animation: glowingBorder 3s infinite alternate;
+      text-align: center;
+    }
+    #about p { font-size: 1.2rem; }
+
+    /* Teacher */
+    #teacher {
+      text-align: center;
+      background: #111; border-radius: 16px;
+      padding: 40px; box-shadow: 0 0 25px rgba(239,68,68,0.7);
+    }
+    .teacher-info img {
+      width: 180px; height: 180px; border-radius: 50%;
+      border: 5px solid #ef4444; object-fit: cover;
+      transition: 0.5s;
+    }
+    .teacher-info img:hover { transform: scale(1.1) rotate(4deg); }
+    .teacher-info h3 { margin: 15px 0; font-size: 1.6rem; color: #ff0; }
+    .teacher-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+    .teacher-links a { padding: 10px 18px; border-radius: 8px; background: #ef4444; color: #fff; font-weight: bold; transition: 0.3s; }
+    .teacher-links a:hover { background: #ff0; color: #111; }
+
+    /* Skills */
+    .skills { margin-top: 20px; }
+    .skill { margin-bottom: 15px; }
+    .skill-name { font-weight: bold; margin-bottom: 5px; }
+    .progress-bar {
+      background: #222; border-radius: 10px;
+      overflow: hidden; height: 22px; width: 100%;
+    }
+    .progress {
+      background: linear-gradient(90deg, #ef4444, #ff0000);
+      height: 100%; width: 0%;
+      transition: width 2s ease;
+    }
+
+    /* Contact */
+    #contact { text-align: center; }
+    .contact-links { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; }
+    .contact-links a {
+      display: inline-block; padding: 12px 20px;
+      border-radius: 8px; background: #ef4444; color: #fff; font-weight: bold;
+      transition: 0.3s;
+    }
+    .contact-links a:hover { background: #ff0; color: #111; }
+
+    footer { text-align: center; padding: 20px; background: #111; margin-top: 40px; color: #aaa; }
+
+    /* Animations */
+    @keyframes blink { 0%,100%{border-color:transparent;} 50%{border-color:#ff0;} }
+    @keyframes glowingBorder { from { box-shadow:0 0 20px rgba(239,68,68,0.5);} to{ box-shadow:0 0 40px rgba(239,68,68,1);} }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      nav ul { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Ushan</div>
+    <ul>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#teacher" class="nav-link">Teacher</a></li>
+      <li><a href="#football" class="nav-link">Football</a></li>
+      <li><a href="#tech" class="nav-link">Tech</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div id="particles-js"></div>
+    <h1>Hi, I'm Ushan</h1>
+    <p><span id="typing"></span></p>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m <strong>Ushan</strong>, a 17-year-old from Badulla preparing for the 2027 A/Ls.  
+       I love football ⚽ (Messi fan 🐐) and exploring technology 💻.  
+       I aim to combine football’s discipline with tech creativity 🚀.</p>
+  </section>
+
+  <!-- Teacher -->
+  <section id="teacher">
+    <h2>My ICT Teacher</h2>
+    <div class="teacher-info">
+      <img src="https://ictfromabcrv1.netlify.app/assets/rit_pic.jpg" alt="Ravindu Bandaranayake">
+      <h3>Ravindu Bandaranayake</h3>
+      <p>💡 Lecturer at Sakya Institute | Founder of <strong>ICT From ABC</strong><br>
+         🎓 BCS Computing (UK) | Cybersecurity & Forensics (Univ. of Gloucestershire)<br>
+         🌟 An inspiration for me in both academics and technology.</p>
+      <div class="teacher-links">
+        <a href="https://www.instagram.com/ravindubandaranayake" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/c/RavinduBandaranayake" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/ravindu.bandaranayake" target="_blank">Facebook</a>
+        <a href="https://ictfromabcrv1.netlify.app" target="_blank">ICT From ABC</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Football -->
+  <section id="football"><h2>Football Passion</h2>
+    <p>Football is discipline & vision. I train dribbling, agility, first touch, finishing. Following Messi inspires me to push further.</p>
+  </section>
+
+  <!-- Tech -->
+  <section id="tech"><h2>Tech & ICT</h2>
+    <p>I enjoy programming, cybersecurity basics, and digital skills. ICT drives me to explore and grow every day.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>My Tech Skills</h2>
+    <div class="skills">
+      <div class="skill"><div class="skill-name">HTML & CSS</div><div class="progress-bar"><div class="progress" data-skill="90"></div></div></div>
+      <div class="skill"><div class="skill-name">JavaScript</div><div class="progress-bar"><div class="progress" data-skill="75"></div></div></div>
+      <div class="skill"><div class="skill-name">Python</div><div class="progress-bar"><div class="progress" data-skill="70"></div></div></div>
+      <div class="skill"><div class="skill-name">Cybersecurity Basics</div><div class="progress-bar"><div class="progress" data-skill="60"></div></div></div>
+      <div class="skill"><div class="skill-name">Video Editing</div><div class="progress-bar"><div class="progress" data-skill="80"></div></div></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out through WhatsApp or Email!</p>
+    <div class="contact-links">
+      <a href="https://wa.me/94723601035" target="_blank">📱 WhatsApp: +94 723601035</a>
+      <a href="mailto:ushanpabasara0117@gmail.com">✉️ Email: ushanpabasara@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Ushan — Designed with ❤️ in Badulla</footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    /* Particles.js background */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {"value":80,"density":{"enable":true,"value_area":800}},
+        "color":{"value":"#ef4444"},
+        "shape":{"type":"circle"},
+        "opacity":{"value":0.5},
+        "size":{"value":3},
+        "line_linked":{"enable":true,"distance":150,"color":"#ff0000","opacity":0.4,"width":1},
+        "move":{"enable":true,"speed":4}
+      }
+    });
+
+    /* Typing effect */
+    const texts = ["2027 A/L Student", "Football Player ⚽", "Tech Enthusiast 💻"];
+    let ti = 0, tj = 0, current = "", deleting = false;
+    (function type() {
+      current = texts[ti];
+      document.getElementById("typing").textContent = current.substring(0, tj);
+      if (!deleting && tj < current.length) { tj++; setTimeout(type, 120); }
+      else if (deleting && tj > 0) { tj--; setTimeout(type, 80); }
+      else { deleting = !deleting; if (!deleting) ti = (ti+1)%texts.length; setTimeout(type, 1000); }
+    })();
+
+    /* Scroll reveal + Skills bar */
+    const secs = document.querySelectorAll("section");
+    function onScroll() {
+      const trigger = window.innerHeight * 0.85;
+      secs.forEach(s => {
+        if (s.getBoundingClientRect().top < trigger) {
+          s.classList.add("show");
+          if (s.id === "skills") {
+            document.querySelectorAll("#skills .progress").forEach(bar => {
+              bar.style.width = bar.getAttribute("data-skill") + "%";
+            });
+          }
+        }
+      });
+    }
+    window.addEventListener("scroll", onScroll); onScroll();
+  </script>
+</body>
+</html>
